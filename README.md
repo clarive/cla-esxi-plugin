@@ -48,12 +48,11 @@ The different options to choose from are:
     - Register VM from vmx file: Registers a new VM from a file in the host.
     - Delete VM: Deletes the selected VM and all its fields. It also deletes the VM CI.
     - Unregister VM: Unregisters the selected VM from the host, and also deletes the VM CI.
-    - Custom command: Allows writing of a custom command to be launched.
+    - Snapshot: Allows snapshot management.
     
 - **Server** - This field will appear when you have the "List VMs", "Custom command" or "Register VM" option(s) selected. This option lets you choose the server where you wish to execute the command. 
 - **Vmx file path** - Write the full path to the ´.vmx´ file in the host. This option will appear with "List VMs" option.
 - **Virtual machine** - Select the VM CI you wish to manage.
-- **Custom command** - Here you can add different custom commands you wish to launch on the server.
 - **Errors and Outputs** - These two fields are for error control on the command launch.
 
 Configuration example:
