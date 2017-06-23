@@ -4,18 +4,18 @@
         name: 'command',
         fieldLabel: 'Command',
         data: [
-            ['list','list'],
-            ['start','start'],
-            ['stop','stop'],
-            ['restart','restart'],
-            ['suspend','suspend'],
-            ['status','status'],
-            ['register','register'],
-            ['delete','delete'],
-            ['unregister','unregister'],
-            ['snapshot','snapshot']
+            ['list', 'list'],
+            ['start', 'start'],
+            ['stop', 'stop'],
+            ['restart', 'restart'],
+            ['suspend', 'suspend'],
+            ['status', 'status'],
+            ['register', 'register'],
+            ['delete', 'delete'],
+            ['unregister', 'unregister'],
+            ['snapshot', 'snapshot']
         ],
-        value: params.data.command || ['list'],
+        value: params.data.command || 'list',
         allowBlank: false,
         anchor: '100%',
         singleMode: true
@@ -25,12 +25,12 @@
         name: 'snapshotAction',
         fieldLabel: 'Action',
         data: [
-            ['get','get'],
-            ['create','create'],
-            ['remove','remove'],
-            ['revert','revert']
+            ['get', 'get'],
+            ['create', 'create'],
+            ['remove', 'remove'],
+            ['revert', 'revert']
         ],
-        value: params.data.snapshotAction || ['get'],
+        value: params.data.snapshotAction || 'get',
         allowBlank: true,
         singleMode: true,
         width: 400,
@@ -161,26 +161,29 @@
 
     actionComboBox.on('addItem', function() {
         var v = actionComboBox.getValue();
-        if (v == 'get') {
-            snapshotNameTextField.hide();
-            snapshotNameTextField.allowBlank = true;
-            snapshotIdTextField.hide();
-            snapshotIdTextField.allowBlank = true;
-        } else if (v == 'create') {
-            snapshotNameTextField.show();
-            snapshotNameTextField.allowBlank = false;
-            snapshotIdTextField.hide();
-            snapshotIdTextField.allowBlank = true;
-        } else if (v == 'remove') {
-            snapshotNameTextField.hide();
-            snapshotNameTextField.allowBlank = true;
-            snapshotIdTextField.show();
-            snapshotIdTextField.allowBlank = false;
-        } else {
-            snapshotNameTextField.hide();
-            snapshotNameTextField.allowBlank = true;
-            snapshotIdTextField.show();
-            snapshotIdTextField.allowBlank = false;
+        var command = commandComboBox.getValue();
+        if (command == 'snapshot') {
+            if (v == 'get') {
+                snapshotNameTextField.hide();
+                snapshotNameTextField.allowBlank = true;
+                snapshotIdTextField.hide();
+                snapshotIdTextField.allowBlank = true;
+            } else if (v == 'create') {
+                snapshotNameTextField.show();
+                snapshotNameTextField.allowBlank = false;
+                snapshotIdTextField.hide();
+                snapshotIdTextField.allowBlank = true;
+            } else if (v == 'remove') {
+                snapshotNameTextField.hide();
+                snapshotNameTextField.allowBlank = true;
+                snapshotIdTextField.show();
+                snapshotIdTextField.allowBlank = false;
+            } else {
+                snapshotNameTextField.hide();
+                snapshotNameTextField.allowBlank = true;
+                snapshotIdTextField.show();
+                snapshotIdTextField.allowBlank = false;
+            }
         }
     });
 
