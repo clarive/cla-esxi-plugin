@@ -1,0 +1,159 @@
+#: init/esxi-service.js
+msgid "Manage Esxi VmWare VM"
+msgstr "Controlar maquina de Esxi Vmware"
+
+#: init/esxi-service.js
+msgid "Server CI doesn't exist"
+msgstr "El CI de servidor no existe"
+
+#: init/esxi-service.js
+msgid "VM CI doesn't exist"
+msgstr "El CI de Maquina virtual no existe"
+
+#: init/esxi-service.js
+msgid "No virtual machine selected"
+msgstr "Ninguna máquina virtual seleccionada"
+
+#: init/esxi-service.js
+msgid "No option selected"
+msgstr "Ninguna opcion seleccionada"
+
+#: init/esxi-service.js
+msgid "esxi task"
+msgstr "Tarea de Esxi"
+
+#: init/esxi-service.js
+msgid "Starting virtual machine "
+msgstr "Iniciando máquina virtual"
+
+#: init/esxi-service.js
+msgid "Virtual machine already started"
+msgstr "Máquina virtual ya iniciada"
+
+#: init/esxi-service.js
+msgid "Stopping virtual machine "
+msgstr "Deteniendo máquina virtual"
+
+#: init/esxi-service.js
+msgid "Virtual machine already stopped"
+msgstr "Máquina virtual ya detenida"
+
+#: init/esxi-service.js
+msgid "Restarting virtual machine "
+msgstr "Reiniciando máquina virtual "
+
+#: init/esxi-service.js
+msgid "Virtual machine already stopped. Starting virtual machine."
+msgstr "Máquina virtual ya detenida. Iniciando máquina virtual."
+
+#: init/esxi-service.js
+msgid "Suspending virtual machine "
+msgstr "Suspendiendo máquina virtual"
+
+#: init/esxi-service.js
+msgid "Virtual machine already Suspended"
+msgstr "Máquina virtual ya suspendida"
+
+#: init/esxi-service.js
+msgid "Virtual machine not started, can't be suspended."
+msgstr "Máquina virtual no iniciada, no puede ser suspendida."
+
+#: init/esxi-service.js
+msgid "Virtual machine CI save with the MID: "
+msgstr "CI de máquina virtual guardado con el MID: "
+
+#: init/esxi-service.js
+msgid "Task "
+msgstr "Tarea "
+
+#: init/esxi-service.js
+msgid " finished."
+msgstr " acabada"
+
+#: public/form/esxi-service-form.js
+msgid "Command"
+msgstr "Comando"
+
+#: public/form/esxi-service-form.js
+msgid "list"
+msgstr "Listar"
+
+#: public/form/esxi-service-form.js
+msgid "start"
+msgstr "Iniciar"
+
+#: public/form/esxi-service-form.js
+msgid "stop"
+msgstr "Parar"
+
+#: public/form/esxi-service-form.js
+msgid "restart"
+msgstr "Reiniciar"
+
+#: public/form/esxi-service-form.js
+msgid "suspend"
+msgstr "Suspender"
+
+#: public/form/esxi-service-form.js
+msgid "status"
+msgstr "Estado"
+
+#: public/form/esxi-service-form.js
+msgid "register"
+msgstr "Registrar"
+
+#: public/form/esxi-service-form.js
+msgid "delete"
+msgstr "Borrar"
+
+#: public/form/esxi-service-form.js
+msgid "unregister"
+msgstr "Eliminar del registro"
+
+#: public/form/esxi-service-form.js
+msgid "snapshot"
+msgstr "Instantanea"
+
+#: public/form/esxi-service-form.js
+msgid "Action"
+msgstr "Acción"
+
+#: public/form/esxi-service-form.js
+msgid "get"
+msgstr "Tomar"
+
+#: public/form/esxi-service-form.js
+msgid "create"
+msgstr "Crear"
+
+#: public/form/esxi-service-form.js
+msgid "remove"
+msgstr "Borrar"
+
+#: public/form/esxi-service-form.js
+msgid "revert"
+msgstr "Revertir"
+
+#: public/form/esxi-service-form.js public/form/esxi-vm-ci-form.js
+msgid "Server"
+msgstr "Servidor"
+
+#: public/form/esxi-service-form.js
+msgid "Virtual Machine"
+msgstr "Máquina virtual"
+
+#: public/form/esxi-service-form.js
+msgid "Vmx file path"
+msgstr "Ruta del archivo vmx"
+
+#: public/form/esxi-service-form.js
+msgid "Snapshot name"
+msgstr "Nombre de la instantánea"
+
+#: public/form/esxi-service-form.js
+msgid "Snapshot ID"
+msgstr "ID de la instantánea"
+
+#: public/form/esxi-vm-ci-form.js
+msgid "Virtual Machine ID"
+msgstr "ID de la máquina virtual"

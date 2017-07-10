@@ -2,18 +2,18 @@
 
     var commandComboBox = Cla.ui.comboBox({
         name: 'command',
-        fieldLabel: 'Command',
+        fieldLabel: _('Command'),
         data: [
-            ['list', 'list'],
-            ['start', 'start'],
-            ['stop', 'stop'],
-            ['restart', 'restart'],
-            ['suspend', 'suspend'],
-            ['status', 'status'],
-            ['register', 'register'],
-            ['delete', 'delete'],
-            ['unregister', 'unregister'],
-            ['snapshot', 'snapshot']
+            ['list', _('list')],
+            ['start', _('start')],
+            ['stop', _('stop')],
+            ['restart', _('restart')],
+            ['suspend', _('suspend')],
+            ['status', _('status')],
+            ['register', _('register')],
+            ['delete', _('delete')],
+            ['unregister', _('unregister')],
+            ['snapshot', _('snapshot')]
         ],
         value: params.data.command || 'list',
         allowBlank: false,
@@ -23,12 +23,12 @@
 
     var actionComboBox = Cla.ui.comboBox({
         name: 'snapshotAction',
-        fieldLabel: 'Action',
+        fieldLabel: _('Action'),
         data: [
-            ['get', 'get'],
-            ['create', 'create'],
-            ['remove', 'remove'],
-            ['revert', 'revert']
+            ['get', _('get')],
+            ['create', _('create')],
+            ['remove', _('remove')],
+            ['revert', _('revert')]
         ],
         value: params.data.snapshotAction || 'get',
         allowBlank: true,

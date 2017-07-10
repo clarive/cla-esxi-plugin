@@ -1,6 +1,6 @@
 var reg = require("cla/reg");
 reg.register('service.esxi.start', {
-    name: 'Manage Esxi VmWare VM',
+    name: _('Manage Esxi VmWare VM'),
     icon: '/plugin/cla-esxi-plugin/icon/esxi.svg',
     form: '/plugin/cla-esxi-plugin/form/esxi-service-form.js',
     handler: function(ctx, params) {
@@ -26,10 +26,10 @@ reg.register('service.esxi.start', {
         var errors = params.errors || "fail";
 
         if (!esxiServer) {
-            log.fatal("Server CI doesn't exist");
+            log.fatal(_("Server CI doesn't exist"));
         }
         if (!vmCiId) {
-            log.fatal("VM CI doesn't exist");
+            log.fatal(_("VM CI doesn't exist"));
         }
 
         if (commandOption == "custom") {
@@ -46,15 +46,15 @@ reg.register('service.esxi.start', {
                 mid: vmCiId + ""
             });
             if (!vmCi) {
-                log.fatal("VM CI doesn't exist");
+                log.fatal(_("VM CI doesn't exist"));
             }
             server = vmCi.server;
             if (!server) {
-                log.fatal("Server CI doesn't exist");
+                log.fatal(_("Server CI doesn't exist"));
             }
             vmId = vmCi.vmId;
             if (vmId < 1) {
-                log.fatal("No virtual machine selected")
+                log.fatal(_("No virtual machine selected"));
             }
             if (commandOption == "start") {
                 command = "vmsvc/power.on ";
@@ -81,7 +81,7 @@ reg.register('service.esxi.start', {
                     command = "vmsvc/snapshot.revert ";
                     snapshotParameter = " " + snapshotId + " suppressPowerOn";
                 } else {
-                    log.fatal("No option selected");
+                    log.fatal(_("No option selected"));
                 }
             }
             command = command + vmId + snapshotParameter;
@@ -90,7 +90,7 @@ reg.register('service.esxi.start', {
 
         function remoteCommand(params, command, server, errors) {
             var output = reg.launch('service.scripting.remote', {
-                name: 'esxi task',
+                name: _('esxi task'),
                 config: {
                     errors: errors,
                     server: server,
@@ -125,32 +125,32 @@ reg.register('service.esxi.start', {
             parsedResponse = commandLaunch.output.substring(parseIndex + 23, commandLaunch.output.length - 1);
             response = commandLaunch.output;
             if (commandOption == "start" && (parsedResponse == "Suspended" || parsedResponse == "Powered off")) {
-                log.debug("Starting virtual machine " + vmId, response);
+                log.debug(_("Starting virtual machine ") + vmId, response);
                 commandLaunch = remoteCommand(params, fullCommand, server, errors);
             } else if (commandOption == "start" && parsedResponse == "Powered on") {
-                log.warn("Virtual machine already started", response);
+                log.warn(_("Virtual machine already started"), response);
             }
             if (commandOption == "stop" && (parsedResponse == "Suspended" || parsedResponse == "Powered on")) {
-                log.debug("Stopping virtual machine " + vmId, response);
+                log.debug(_("Stopping virtual machine ") + vmId, response);
                 commandLaunch = remoteCommand(params, fullCommand, server, errors);
             } else if (commandOption == "stop" && parsedResponse == "Powered off") {
-                log.warn("Virtual machine already stopped", response);
+                log.warn(_("Virtual machine already stopped"), response);
             }
             if (commandOption == "restart" && (parsedResponse == "Suspended" || parsedResponse == "Powered on")) {
-                log.debug("Restarting virtual machine " + vmId, response, response);
+                log.debug(_("Restarting virtual machine ") + vmId, response, response);
                 commandLaunch = remoteCommand(params, "vim-cmd vmsvc/power.off " + vmId, server, errors);
                 commandLaunch = remoteCommand(params, "vim-cmd vmsvc/power.on " + vmId, server, errors);
             } else if (commandOption == "restart" && parsedResponse == "Powered off") {
-                log.warn("Virtual machine already stopped. Starting virtual machine.", response);
+                log.warn(_("Virtual machine already stopped. Starting virtual machine."), response);
                 commandLaunch = remoteCommand(params, "vim-cmd vmsvc/power.on " + vmId, server, errors);
             }
             if (commandOption == "suspend" && parsedResponse == "Powered on") {
-                log.debug("Suspending virtual machine " + vmId);
+                log.debug(_("Suspending virtual machine ") + vmId);
                 commandLaunch = remoteCommand(params, fullCommand, server, errors);
             } else if (commandOption == "suspend" && parsedResponse == "Suspended") {
-                log.warn("Virtual machine already Suspended", response);
+                log.warn(_("Virtual machine already Suspended"), response);
             } else if (commandOption == "suspend" && parsedResponse == "Powered off") {
-                log.error("Virtual machine not started, can't be suspended.", response)
+                log.error(_("Virtual machine not started, can't be suspended."), response)
             }
         } else if (commandOption == "register") {
             commandLaunch = remoteCommand(params, fullCommand, server, errors);
@@ -168,13 +168,13 @@ reg.register('service.esxi.start', {
             var newVmId = newVmCi.save();
             response.mid = newVmId;
             response.output = commandLaunch.output;
-            log.info("Virtual machine CI save with the MID: " + newVmId);
-            log.info("Task " + commandOption + " finished.", response)
+            log.info(_("Virtual machine CI save with the MID: ") + newVmId);
+            log.info(_("Task ") + commandOption + _(" finished."), response)
             return response;
         }
 
         response = commandLaunch.output;
-        log.info("Task " + commandOption + " finished.", response)
+        log.info(_("Task ") + commandOption + _(" finished."), response)
 
         return response;
 
