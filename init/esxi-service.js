@@ -31,11 +31,8 @@ reg.register('service.esxi.start', {
         if (!vmCiId) {
             log.fatal(_("VM CI doesn't exist"));
         }
-
-        if (commandOption == "custom") {
-            server = esxiServer;
-            command = options;
-        } else if (commandOption == "list") {
+        
+        if (commandOption == "list") {
             server = esxiServer;
             command = "vmsvc/getallvms";
         } else if (commandOption == "register") {
