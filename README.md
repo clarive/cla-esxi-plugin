@@ -3,6 +3,11 @@
 
 ESXI plugin will allow you to manage your virtual machines in Hypervisor from a Clarive instance.
 
+## What is ESXI VMWare
+
+VMware ESXi (formerly ESX) is an enterprise-class, type-1 hypervisor developed by VMware for deploying and serving virtual computers.
+As a type-1 hypervisor, ESXi is not a software application that one installs in an operating system (OS); instead, it includes and integrates vital OS components, such as a kernel.
+
 ## Requirements
 
 There are no requirements outlined in Clarive in order to work with this plugin.
@@ -16,7 +21,7 @@ directory in a Clarive instance.
 
 Once the plugin is correctly installed, you will have a new palette service called 'Manage Esxi VmWare VM', and a new CI for the VMs you wish to manage from Clarive, called 'EsxiVms'.
 
-### EsxiVms CI:
+### EsxiVms CI
 
 You will be able to save your virtual machine parameters in this CI. The main fields are:
 
@@ -32,7 +37,7 @@ There are two different ways to obtain the virtual machine ID.
 The first way is using the palette service with the "List Vms" option to view the ID assigned to the virtual machine.
 The second way is by checking your virtual machine through the host web browser and viewing the URL. For example, if your selected virtual machine URL is https://Host_URL/ui/#/host/vms/24/, 24 will be the ID assigned to that virtual machine.
 
-### Esxi vmWare manage VMs:
+### Esxi vmWare manage VMs
 
 This palette service will let you choose the option that you wish to perform with a virtual machine.
 The various parameters from the palette service are:
