@@ -39,7 +39,7 @@
 
     var esxiServerCombo = Cla.ui.ciCombo({
         name: 'esxiServer',
-        class: 'generic_server',
+        role: 'Server',
         fieldLabel: _('Server'),
         value: params.data.esxiServer || '',
         width: 400,
