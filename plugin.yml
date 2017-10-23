@@ -1,7 +1,7 @@
 name: Clarive ESXI Plugin
 description: ESXI plugin will allow you to manage your virtual machines in Hypervisor from a Clarive instance.
 version: 1.0
-icon: https://github.com/clarive/cla-esxi-plugin/public/icon/esxi.svg
+icon: https://cdn.rawgit.com/clarive/cla-esxi-plugin/master/public/icon/esxi.svg?sanitize=true
 url: https://github.com/clarive/cla-esxi-plugin
 requires:
   - clarive_version: 6.8 <= version
