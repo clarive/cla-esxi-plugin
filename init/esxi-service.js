@@ -1,8 +1,60 @@
 var reg = require("cla/reg");
 reg.register('service.esxi.start', {
-    name: _('Manage Esxi VmWare VM'),
+    name: _('Manage ESXi VMware VM'),
     icon: '/plugin/cla-esxi-plugin/icon/esxi.svg',
     form: '/plugin/cla-esxi-plugin/form/esxi-service-form.js',
+    rulebook: {
+        moniker: 'esxi_control',
+        description: _('Control Esxi VMWare'),
+        required: [ 'command'],
+        allow: ['esxi_server', 'command', 'snapshot_action', 'vm_id', 'file_path',
+        'snapshot_name', 'snapshot_id', 'errors'],
+        mapper: {
+            'esxi_server':'esxiServer',
+            'snapshot_action':'snapshotAction',
+            'vm_id':'vmId',
+            'file_path':'filePath',
+            'snapshot_name':'snapshotName',
+            'snapshot_id':'snapshotId'
+        },
+        examples: [{
+            esxi_control: {
+                command: 'list',
+                esxi_server: 'esxi_server'
+            }
+        },{
+            esxi_control: {
+                command: 'start',
+                vm_id: 'esxi-resource'
+            }
+        },{
+            esxi_control: {
+                command: 'register',
+                esxi_server: 'esxi_server',
+                file_path: '/path/to/vmfile.vmx'
+            }
+        },{
+            esxi_control: {
+                command: 'snapshot',
+                snapshot_action: 'get',
+                vm_id: 'esxi-resource'
+            }
+        },{
+            esxi_control: {
+                command: 'snapshot',
+                snapshot_action: 'create',
+                vm_id: 'esxi-resource',
+                snapshotName: 'test-name'
+            }
+        },{
+            esxi_control: {
+                command: 'snapshot',
+                snapshot_action: 'remove',
+                vm_id: 'esxi-resource',
+                snapshot_id: 'snap_id'
+            }
+        }]
+    },
     handler: function(ctx, params) {
 
         var ci = require("cla/ci");
@@ -16,8 +68,8 @@ reg.register('service.esxi.start', {
             vmId,
             parsedResponse;
         var snapshotParameter = "";
-        var esxiServer = params.esxiServer;
-        var vmCiId = params.vmId;
+        var esxiServer = params.esxiServer || "";
+        var vmCiId = params.vmId || "";
         var filePath = params.filePath || "";
         var commandOption = params.command || "";
         var snapshotAction = params.snapshotAction || "";

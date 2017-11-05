@@ -5,7 +5,7 @@ ci.createRole("EsxiVmware");
 ci.createClass("esxiVms", {
     form: '/plugin/cla-esxi-plugin/form/esxi-vm-ci-form.js',
     icon: '/plugin/cla-esxi-plugin/icon/esxi.svg',
-    roles: ["EsxiVmware"],
+    roles: ["EsxiVmware", "ClariveSE"],
     has: {
         server: {
             is: "rw",
