@@ -1,6 +1,6 @@
 # ESXi VMware plugin
 
-<img src="https://cdn.rawgit.com/clarive/cla-esxi-plugin/master/public/icon/esxi.svg?sanitize=true" alt="ESXi VMware Plugin" title="ESXi VMware Plugin" width="120" height="120">
+<img src="https://cdn.jsdelivr.net/gh/clarive/cla-esxi-plugin/public/icon/esxi.svg?sanitize=true" alt="ESXi VMware Plugin" title="ESXi VMware Plugin" width="120" height="120">
 
 ESXI plugin will allow you to manage your virtual machines in Hypervisor from a Clarive instance.
 
